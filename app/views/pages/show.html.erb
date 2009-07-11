@@ -1,0 +1,20 @@
+<% title @page.title %>
+<% if admin? %>
+  <p>
+    <%= render :partial => 'events/adminlinks',
+	:locals => {
+	  :editpath => edit_page_path(@page),
+	  :destroypath => page_path(@page)
+	} %>
+  </p>
+<% end %>
+
+<% content_for :main_title do %>
+  <%= image_tag "pages/#{@page.title} title.gif" %>
+<% end %>
+<%= image_tag "pages/#{@page.title}.png", :class => 'banner' %>
+<%= @page.mid_col %>
+
+<% content_for :right_col do %>
+<%= @page.right_col %>
+<% end %>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>More to Life - <%= yield(:title) || "Keynsham and Saltford" %></title>
+    <%= stylesheet_link_tag 'screen' %>
+    <%= javascript_include_tag :defaults %>
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <%= yield :head %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <ul id="left-nav">
+	<li><%= link_to_unless_current "Events", events_path do
+		  link_to "Events", events_path, :class => 'current'
+		  end %></li>
+	<% pages_list.each do |page| %>
+	  <li><%= link_to_unless_current page.title, "/#{page.permalink}" do
+		    link_to page.title, "/#{page.permalink}", :class => 'current'
+		    end %></li>
+	<% end %>
+	<% if admin? -%>
+	  <li> </li>
+	  <li><%= link_to 'Create new event', new_event_path %></li>
+          <li><%= link_to 'Create new area', new_area_path %></li>
+	  <li><%= link_to 'Create new page', new_page_path %></li>
+	  <li>
+	    <%= link_to 'Logout', logout_path, :confirm => "Are you sure?" %>
+	  </li>
+	<% end -%>
+      </ul>
+      <div class="container">
+	<div id="left-col">
+	  <p>
+	    Following on from the <strong>'More to Life 08'</strong>
+	    activities in 2008, <strong>'More to Life'</strong> is now
+	    developing an ongoing programme of events and activities for
+	    everyone. Taste and see what this has to offer to the people
+	    of Keynsham, Saltford and the surrounding villages over the
+	    next few years.
+	  </p>
+	  <p>
+	    The vision for <strong>'More to Life'</strong> is that it will
+	    be the community arm of Churches Together in Keynsham and
+	    Saltford: supporting what already takes place, networking and
+	    engaging with people in the community.
+	  </p>
+	  <%= image_tag "laptop.gif", :class => "laptop" %>
+	</div>
+	
+	<ul id="top-nav">
+	  <% cnt = 1
+	     areas_list.each do |area|
+	       if (((cnt - 1) % 3) == 0) -%>
+	      <ul>
+	    <% end -%>
+	      <li><%= link_to_unless_current area.name, area do
+			link_to area.name, area, :class => 'sel' 
+		      end %></li>
+	    <% if cnt % 3 == 0 -%>
+	      </ul>
+	    <% end -%>
+	  <% cnt = cnt + 1
+	   end %>
+	  </ul>
+      	<% if admin? -%>
+	  <p class="admin" style="color: green"><%= flash[:notice] %></p>
+	<% end -%>
+	</ul>
+      <div id="main-title">
+	<%= yield :main_title %>
+      </div>
+      <div id="mid-col">
+	<%= yield %>
+      </div>
+      <div id="right-col">
+	<%= yield :right_col %>
+      </div>
+    </div>
+  </body>
+</html>

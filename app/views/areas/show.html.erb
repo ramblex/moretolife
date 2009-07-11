@@ -1,0 +1,34 @@
+<% title @area.name %>
+
+<% if admin? -%>
+  <p>
+    <%= link_to 'Edit', edit_area_path(@area), :class => 'admin' %> 
+    <%= link_to 'Destroy', area_path(@area), 
+	:confirm => "Are you sure?",
+	:method => :delete,
+	:class => 'admin' %>
+  </p>
+<% end -%>
+
+<% content_for :main_title do %>
+  <%= image_tag "areas/#{@area.name} title.gif" %>  
+<% end %>
+
+<%= image_tag "areas/#{@area.name}.png", :class => 'banner' %>
+<h3><%=h @area.description %></h3>
+<dl id="events">
+  <%= render :partial => @events %>
+</dl>
+<%= will_paginate @events %>
+
+<% content_for :right_col do %>
+  <%= image_tag "areas/#{@area.name} quote.gif", :class => 'quote' %>
+  <% unless @area.contact.blank? %>
+    <div class="border">
+      <h4>CONTACT</h4>
+      <p><%=h @area.contact %></p>
+    </div>
+  <% end %>
+  <%= render :partial => 'events/subscribe' %>
+<% end %>
+

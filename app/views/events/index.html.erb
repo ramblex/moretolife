@@ -1,0 +1,28 @@
+<% content_for :right_col do %>
+  <%= image_tag "Events quote.gif", :class => 'quote' %>
+  <%= render :partial => 'subscribe' %>
+  <div class="border">
+    <h4>THE ARCHIVES</h4>
+    <%= image_tag "Archive.jpg", :class => 'photo' %>
+    <p>Rest assured, we haven't deleted all those great events from
+      2008, they've just moved
+      <%= link_to "here", "http://archive.moretolife08.org.uk" %>
+    </p>
+  </div>
+<% end %>
+
+<% content_for :head do %>
+  <%= auto_discovery_link_tag :atom, events_path(:atom) %>
+<% end %>
+
+<% content_for :main_title do %>
+  <%= image_tag "Events title.gif" %>
+<% end %>
+<%= image_tag "Events.png", :class => 'banner' %>
+<h3>After the success of More to Life 08, the More to Life initiative is
+continuing into the coming years. The new events will be even better than
+before!</h3>
+<dl id="events">
+  <%= render :partial => @events %>
+</dl>
+<%= will_paginate @events %>

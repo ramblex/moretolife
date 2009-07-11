@@ -1,0 +1,19 @@
+<div class="link">
+  <% fields_for "event[link_attr][]", event_link do |f| %>
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title, :index => nil %>
+    </p>
+    <p>
+      <%= f.label :url %><br />
+      <%= f.text_field :url, :index => nil %>
+    </p>
+    <% if event_link.new_record? %>
+      <%= link_to_function 'remove', "$(this).up('.link').remove()" %>
+    <% else %>
+      <%= link_to_function 'remove', "mark_for_destroy(this)" %>
+      <%= f.hidden_field :id, :index => nil %>
+      <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+    <% end %>
+  <% end %>
+</div>

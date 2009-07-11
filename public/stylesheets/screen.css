@@ -1,0 +1,299 @@
+/* 
+ * CSS stylesheet for More to Life 
+ * Contents:
+ * 1. Structure
+ * 2. Typography
+ */
+
+/* Structure */
+html {
+    margin-bottom: 67px;
+}
+
+body {
+    background-color: #fcb040;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 67px 0; margin: 0;
+}
+
+#wrapper {
+    width: 909px;
+    margin: 0 0 0 45px;
+}
+
+.container {
+    float:right;
+    width: 795px;
+    padding: 0 0 35px 0;
+    background: #fff;
+    margin: 0;
+}
+
+ul#left-nav {
+    width: 114px;
+    list-style-type: none;
+    padding: 0;
+    float: left;
+    border-top: 1px solid white;
+    margin-top: 20px;
+}
+
+ul#left-nav li {
+    height: 29px;
+    line-height: 30px;
+    border-bottom: 1px solid white;
+}
+
+ul#left-nav a {
+    color: black;
+}
+
+ul#left-nav a.current {
+    color: white;
+}
+
+#left-col {
+    float: left;
+    width: 167px;
+    height: 500px;
+    padding: 20px 30px 0 20px;
+    margin: 0;
+}
+
+ul#top-nav {
+    float: left;
+    width: 578px;
+    height: 117px;
+    margin: 0; padding: 0;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+ul#top-nav ul {
+    list-style-type: none;
+    float: left;
+    width: 191px;
+    margin: 0; padding: 20px 0 0 0;
+    border-left: 1px solid #fcb040;
+}
+
+ul#top-nav ul a {
+    display: block;
+    width: 172px;
+    height: 13px;
+    padding: 4px 0 3px 20px;
+    text-decoration: none;
+    line-height: 13px;
+    color: black;
+}
+
+ul#top-nav ul a:hover, a.sel {
+    background: #fcb040;
+}
+
+#mid-col {
+    float: left;
+    width: 335px;
+    margin: 0; padding: 0;
+}
+
+#mid-col ul {
+    margin: 0 0 0 15px; padding: 0;
+}
+
+#mid-col li {
+    color: #6d6e71;
+}
+
+dl#events {
+    padding: 0; margin: 0;
+}
+
+dl#events dt {
+    border-top: 1px solid black;
+    padding: 5px 0 0 0;
+    margin: 5px 0 0 0;
+}
+
+dl#events dd {
+    padding: 0; margin: 0;
+}
+
+dl#events p {
+    color: #6d6e71;
+    margin: 0;
+}
+
+dl#events p.description {
+    margin: 7px 0;
+}
+
+#main-title {
+    width: 573px;
+    margin: 7px 0 8px 0; padding: 0;
+    float: left;
+}
+
+#right-col {
+    float: left;
+    width: 207px;
+    padding: 0 10px 0 26px;
+    margin: 0;
+}
+
+#right-col div {
+    margin: 0;
+    padding: 5px;
+}
+
+#right-col div.noborder {
+    background: #fff0dd;
+    margin-bottom: 10px;
+}
+
+#right-col div.border {
+    border: 1px solid #fcb040;
+    margin-bottom: 10px;    
+}
+
+#right-col ul {
+    list-style: none;
+    margin: 0; padding: 0;
+}
+
+#right-col li {
+    padding: 5px 0;
+}
+
+/* Typography */
+p {
+    color: #6d6e71;
+    padding: 0; margin: 0;
+}
+
+p.eventinfo {
+    font-size: 11pt;
+    color: black !important;
+}
+
+a {
+    color: #b8564c;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #b8837d;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#left-col p {
+    font-size: 11px;
+    padding: 0; margin: 0 0 17px 0;
+    line-height: 15px;
+    color: black;
+}
+
+#mid-col p {
+    margin: 0 0 7px 0; padding: 0;
+    color: #6d6e71;
+}
+
+h1 {
+    font-size: 12pt;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2 {
+    font-size: 10pt;
+    color: #fcb040;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 12px;
+    color: black;
+    margin: 0; padding: 0;
+}
+
+h4 {
+    font-size: 12px;
+    color: #fcb040;
+    margin: 0; padding: 0;
+}
+
+/* Images */
+img.laptop {
+    margin: 80px 0 0 -13px;
+}
+
+img.photo {
+    float: left;
+    margin: 5px 10px 5px 0;
+}
+
+img.banner {
+    /* margin: 3px 0 10px 0; */
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+img {
+    /* margin: 0 0 5px 0; */
+}
+
+img.quote {
+    margin: 0 0 20px 0;
+}
+
+/* Admin */
+a.admin {
+    font-size: 10px;
+    text-align: right;
+    text-decoration: underline;
+}
+
+p.admin-notice {
+    width: 80%;
+    padding: 5px;
+}
+
+/* Forms */
+#links, .link {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#links {
+    background: #fff0dd;
+}
+
+.link {
+    border: 1px solid #fcb040;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    width: 100%;
+}
+
+span.disabled {
+    display: none;
+}
+
+span.current {
+    color: #ccc;
+}

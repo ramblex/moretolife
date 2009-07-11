@@ -1,0 +1,2 @@
+class EventLinksController < ApplicationController
+end

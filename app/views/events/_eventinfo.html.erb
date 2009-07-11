@@ -1,0 +1,2 @@
+<%=h date_format(event.date_begin, event.date_end) -%>
+<%- if !event.venue.eql?("") -%>, <%=h event.venue %><% end %>

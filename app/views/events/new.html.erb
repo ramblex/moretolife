@@ -1,0 +1,54 @@
+<h1>New event</h1>
+
+<% form_for @event, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+<p>
+    <%= f.label :image %><br />
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+    <%= f.label :date_begin %><br />
+    <%= f.datetime_select :date_begin, :minute_step => 5,
+	:use_short_month => true %>
+  </p>
+  <p>
+    <%= f.label :date_end %><br />
+    <%= f.date_select :date_end, :use_short_month => true %>
+  </p>
+  <p>
+    <%= f.label :area_id %><br />
+    <%= collection_select(:event, :area_id, Area.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.label :venue %><br />
+    <%= f.text_field :venue %>
+  </p>
+  <p>
+    <%= f.label :speaker %><br />
+    <%= f.text_field :speaker %>
+  </p>
+  <p>
+    <%= f.label :short_desc %><br />
+    <%= f.text_area :short_desc %>
+  </p>
+  <p>
+    <%= f.label :long_desc %><br />
+    <%= f.text_area :long_desc %>
+  </p>
+  <p>
+    <%= f.label :featured %>
+    <%= f.check_box :featured %>
+  </p>
+  <div id="links">
+    <p>Event links  [<%= add_event_link "Add event link" %>]</p>
+    <%= render :partial => 'event_link', :collection => @event.event_links %>
+  </div>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+<%= link_to 'Back', events_path %>

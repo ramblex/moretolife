@@ -1,0 +1,43 @@
+<% title @event.name %>
+<% if admin? -%>
+  <%= link_to 'Edit', edit_event_path(@event), :class => 'admin' %>
+  <%= link_to 'Destroy', event_path(@event),
+      :confirm => 'Are you sure?',
+      :class => 'admin',
+      :method => :delete
+      %>
+<% end -%>
+
+<% content_for :main_title do %>
+  <%= image_tag 'Events title.gif' %>
+<% end %>
+
+<h1><%=h @event.name %></h1>
+<p class="eventinfo">
+  <%= render :partial => 'eventinfo', :locals => {:event => @event} %>
+</p>
+<hr />
+<% unless @event.photo_file_name.blank? %>
+  <%= image_tag @event.photo.url(:small), :class => 'photo' %>
+<% end %>
+<%= simple_format(@event.long_desc) %>
+<% unless @event.event_links.blank? %>
+  <p>Links <%= render :partial => @event.event_links %></p>
+<% end %>
+<p><%= link_to 'View all events', events_path %></p>
+
+<% content_for :right_col do %>
+  <h2>OTHER EVENTS</h2>
+  <ul>
+    <% @events.each do |event| %>
+      <% unless event.eql?(@event) %>
+	<li>
+	  <% link_to event do %>
+	    <strong><%= event.name %></strong><br />
+	    <%= render :partial => 'eventinfo', :locals => {:event => event} %>
+	  <% end %>
+	</li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

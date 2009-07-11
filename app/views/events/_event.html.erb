@@ -1,0 +1,17 @@
+<dt><strong><%=h event.name %></strong>
+  <% if admin? %>
+    <%= render :partial => 'events/adminlinks',
+	:locals => {
+	  :editpath => edit_event_path(event),
+	  :destroypath => event_path(event)
+	} %>
+  <% end %>
+</dt>
+<dd>
+  <%= render :partial => 'events/eventinfo', :locals => {:event => event} %>
+  <p class="description"><%=h event.short_desc %></p>
+  <p>
+    <%= link_to 'More', event %>
+    <%= render :partial => event.event_links %>
+  </p>
+</dd>

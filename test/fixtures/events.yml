@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  date_begin: 2009-06-20 20:47:26
+  date_end: 2009-06-20 20:47:26
+  venue: MyString
+  short_desc: MyText
+  long_desc: MyText
+  speaker: MyString
+  featured: false
+
+two:
+  name: MyString
+  date_begin: 2009-06-20 20:47:26
+  date_end: 2009-06-20 20:47:26
+  venue: MyString
+  short_desc: MyText
+  long_desc: MyText
+  speaker: MyString
+  featured: false

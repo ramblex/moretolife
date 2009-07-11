@@ -1,0 +1,5 @@
+<% event.event_links.each do |link| %>
+  <% unless link.title.blank? %>
+    | <%= link_to link.title, link.url %>
+  <% end %>
+<% end %>
