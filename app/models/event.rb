@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   belongs_to :area
   has_many :event_links
   after_update :save_event_links
+  default_scope :order => 'date_begin'
   has_attached_file :photo, :styles => { :small => "90x90>" },
   :url => "/images/events/:id/:style/:basename.:extension",
   :path => ":rails_root/public/images/events/:id/:style/:basename.:extension"
