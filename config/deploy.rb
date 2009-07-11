@@ -14,7 +14,7 @@ set :scm, :git
 set :repository,  "ssh://git@174.143.244.92:30000/home/git/moretolife.git"
 set :branch, "master"
 set :user, 'alexd'
-ssh_options[:forward_agent] = true
+#ssh_options[:forward_agent] = true
 set :port, 30000
 
 role :app, "moretolife08.org.uk"
