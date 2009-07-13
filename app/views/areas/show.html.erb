@@ -1,6 +1,6 @@
 <% title @area.name %>
 
-<% if admin? -%>
+<% if admin? %>
   <p>
     <%= link_to 'Edit', edit_area_path(@area), :class => 'admin' %> 
     <%= link_to 'Destroy', area_path(@area), 
@@ -8,7 +8,7 @@
 	:method => :delete,
 	:class => 'admin' %>
   </p>
-<% end -%>
+<% end %>
 
 <% content_for :main_title do %>
   <%= image_tag "areas/#{@area.name} title.gif" %>  
