@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.paginate :page => params[:page]
+    @events = Event.future.paginate :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

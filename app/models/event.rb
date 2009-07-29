@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   has_many :event_links
   after_update :save_event_links
   default_scope :order => 'date_begin'
+  named_scope :future, :conditions => ['date_begin >= ?', Date.today]
   has_attached_file :photo, :styles => { :small => "90x90>" },
   :url => "/images/events/:id/:style/:basename.:extension",
   :path => ":rails_root/public/images/events/:id/:style/:basename.:extension"
