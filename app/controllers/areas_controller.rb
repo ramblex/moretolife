@@ -20,7 +20,7 @@ class AreasController < ApplicationController
     else
       @area = Area.find(params[:id])
     end
-    @events = @area.events.paginate :page => params[:page]
+    @events = @area.events.future.paginate :page => params[:page]
 
     respond_to do |format|
       format.html # show.html.erb
