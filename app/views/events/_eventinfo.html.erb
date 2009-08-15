@@ -1,2 +1,3 @@
 <%=h date_format(event.date_begin, event.date_end) -%>
-<%- if !event.venue.eql?("") -%>, <%=h event.venue %><% end %>
+<%- if !event.speaker.eql?("") -%>, <%=h event.speaker %><%- end -%>
+<%- if !event.venue.eql?("") -%>, <%=h event.venue %><%- end -%>
