@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-    @events = Event.all
+    @events = Event.future.find_all_by_area_id(@event.area_id)
 
     respond_to do |format|
       format.html # show.html.erb

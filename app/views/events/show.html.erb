@@ -27,7 +27,7 @@
 <p><%= link_to 'View all events', events_path %></p>
 
 <% content_for :right_col do %>
-  <h2>OTHER EVENTS</h2>
+  <h2>MORE EVENTS LIKE THIS</h2>
   <ul>
     <% @events.each do |event| %>
       <% unless event.eql?(@event) %>
