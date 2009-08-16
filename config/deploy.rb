@@ -31,4 +31,14 @@ namespace :deploy do
     desc "#{t} task is a no-op with mod_rails"
     task t, :roles => :app do ; end
   end
+
+  desc "Copy uploaded images from previous release"
+  task :copy_prev_upload do
+    prev_uploads_dir = "#{previous_release}/public/images/events" rescue next
+    run "[ -d #{prev_uploads_dir} ] && cp -R #{prev_uploads_dir}/* #{latest_release}/public/images/events/ || echo 'No previous uploads directory'"
+  end
+
+  after "deploy:update_code",  "deploy:copy_prev_upload_dir"
+
+  end
 end
