@@ -1,3 +1,5 @@
+<% javascript "pagination" %>
+
 <% content_for :right_col do %>
   <%= image_tag "Events quote.gif", :class => 'quote' %>
   <%= render :partial => 'subscribe' %>
@@ -22,7 +24,6 @@
 <h3>After the success of More to Life 08, the More to Life initiative is
 continuing into the coming years. The new events will be even better than
 before!</h3>
-<dl id="events">
-  <%= render :partial => @events %>
-</dl>
-<%= will_paginate @events %>
+<div id="events">
+  <%= render "events" %>
+</div>

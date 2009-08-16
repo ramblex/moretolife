@@ -26,4 +26,8 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+
+  def javascript(file)
+    content_for(:head) { javascript_include_tag file }
+  end
 end

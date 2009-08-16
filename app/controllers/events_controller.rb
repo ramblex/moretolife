@@ -3,13 +3,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
+    sleep 2
     @events = Event.future.paginate :page => params[:page]
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @events }
-      format.atom
-    end
   end
 
   # GET /events/1
