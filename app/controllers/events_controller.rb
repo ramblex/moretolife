@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    sleep 2
     @events = Event.future.paginate :page => params[:page]
   end
 
