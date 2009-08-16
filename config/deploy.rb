@@ -37,8 +37,5 @@ namespace :deploy do
     prev_uploads_dir = "#{previous_release}/public/images/events" rescue next
     run "[ -d #{prev_uploads_dir} ] && cp -R #{prev_uploads_dir}/* #{latest_release}/public/images/events/ || echo 'No previous uploads directory'"
   end
-
   after "deploy:update_code",  "deploy:copy_prev_upload_dir"
-
-  end
 end
