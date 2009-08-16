@@ -33,7 +33,7 @@ namespace :deploy do
   end
 
   desc "Copy uploaded images from previous release"
-  task :copy_prev_upload do
+  task :copy_prev_upload_dir do
     prev_uploads_dir = "#{previous_release}/public/images/events" rescue next
     run "[ -d #{prev_uploads_dir} ] && cp -R #{prev_uploads_dir}/* #{latest_release}/public/images/events/ || echo 'No previous uploads directory'"
   end
