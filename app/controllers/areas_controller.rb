@@ -21,11 +21,6 @@ class AreasController < ApplicationController
       @area = Area.find(params[:id])
     end
     @events = @area.events.future.paginate :page => params[:page]
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @area }
-    end
   end
 
   # GET /areas/new
