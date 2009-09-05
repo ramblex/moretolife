@@ -37,5 +37,11 @@ namespace :deploy do
     prev_uploads_dir = "#{previous_release}/public/images/events" rescue next
     run "[ -d #{prev_uploads_dir} ] && cp -R #{prev_uploads_dir}/* #{latest_release}/public/images/events/ || echo 'No previous uploads directory'"
   end
-  after "deploy:update_code",  "deploy:copy_prev_upload_dir"
+
+  desc "Link to production database.yml"
+  task :link_to_database_yml do
+    run "ln -nfs /home/alexd/database.yml #{release_path}/config/database.yml" 
+  end
+  after "deploy:update_code",  "deploy:copy_prev_upload_dir", 
+  "deploy:link_to_database_yml"
 end
