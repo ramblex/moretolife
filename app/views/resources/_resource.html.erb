@@ -1,0 +1,13 @@
+<dt><strong><%=h resource.name %> (<%= resource.file.content_type %>)</strong>
+  <span><%= link_to "Download", resource.file.url %> </span>
+  <% if admin? %>
+    <%= render :partial => 'events/adminlinks',
+	:locals => {
+	  :editpath => edit_resource_path(resource),
+	  :destroypath => resource_path(resource)
+	} %>
+  <% end %>
+</dt>
+<dd>
+  <p class="description"><%=h resource.description %></p>
+</dd>

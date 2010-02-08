@@ -3,6 +3,10 @@
 
 <% content_for :right_col do %>
   <%= image_tag "Events quote.gif", :class => 'quote' %>
+  <div class="noborder">
+    <h2>RESOURCES</h2>
+    <p><%= link_to "Click here", resources_path %> to see the latest resources for More to Life.</p>
+  </div>
   <%= render :partial => 'subscribe' %>
   <div class="border">
     <h4>THE ARCHIVES</h4>

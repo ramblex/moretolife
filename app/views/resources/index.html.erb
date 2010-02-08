@@ -1,0 +1,21 @@
+<% content_for :main_title do %>
+  <%= image_tag "Resources title.gif" %>
+<% end %>
+<%= image_tag "Resources.jpg", :class => "banner" %>
+<h3>Here you'll find a load of great resources that we've put together for everyone to browse and use. Have fun exploring!</h3>
+<dl id="events">
+  <%= render :partial => @resources %>
+</dl>
+
+<% content_for :right_col do %>
+  <%= image_tag "Events quote.gif", :class => 'quote' %>
+  <%= render :partial => 'events/subscribe' %>
+  <div class="border">
+    <h4>THE ARCHIVES</h4>
+    <%= image_tag "Archive.jpg", :class => 'photo' %>
+    <p>Rest assured, we haven't deleted all those great events from
+      2008, they've just moved
+      <%= link_to "here", "http://archive.moretolife08.org.uk" %>
+    </p>
+  </div>
+<% end %>
