@@ -1,4 +1,4 @@
-<dt><strong><%=h resource.name %> (<%= resource.file.content_type %>)</strong>
+<dt><strong><%=h resource.name %></strong>
   <span><%= link_to "Download", resource.file.url %> </span>
   <% if admin? %>
     <%= render :partial => 'events/adminlinks',
