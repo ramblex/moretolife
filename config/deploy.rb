@@ -38,10 +38,16 @@ namespace :deploy do
     run "[ -d #{prev_uploads_dir} ] && cp -R #{prev_uploads_dir}/* #{latest_release}/public/images/events/ || echo 'No previous uploads directory'"
   end
 
+  desc "Copy uploaded resources from previous release"
+  task :copy_prev_resource_dir do
+    prev_uploads_dir = "#{previous_release}/public/resources" rescue next
+    run "[ -d #{prev_uploads_dir} ] && cp -R #{prev_uploads_dir}/* #{latest_release}/public/resources/ || echo 'No previous uploads directory'"
+  end
+
   desc "Link to production database.yml"
   task :link_to_database_yml do
     run "ln -nfs /home/alexd/database.yml #{release_path}/config/database.yml" 
   end
   after "deploy:update_code",  "deploy:copy_prev_upload_dir", 
-  "deploy:link_to_database_yml"
+  "deploy:link_to_database_yml", "deploy:copy_prev_resource_dir"
 end
