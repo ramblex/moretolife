@@ -17,6 +17,9 @@
 	<li><%= link_to_unless_current "Events", events_path do
 		  link_to "Events", events_path, :class => 'current'
 		  end %></li>
+        <li><%= link_to_unless_current "Resources", resources_path do
+                link_to "Resources", resources_path, :class => 'current'
+                end %></li>
 	<% pages_list.each do |page| %>
 	  <li><%= link_to_unless_current page.title, "/#{page.permalink}" do
 		    link_to page.title, "/#{page.permalink}", :class => 'current'
