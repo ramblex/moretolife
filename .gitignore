@@ -1,5 +1,6 @@
 .DS_Store
 config/database.yml
+public/resources/*
 log/*.log
 tmp/**/*
 *.xml.gz
