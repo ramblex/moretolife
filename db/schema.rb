@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100208165242) do
+ActiveRecord::Schema.define(:version => 20100704084709) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20100208165242) do
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.string   "file_file_size"
+    t.integer  "position"
   end
 
 end

@@ -1,13 +1,15 @@
-<dt><strong><%=h resource.name %></strong>
-  <span><%= link_to "Download", resource.file.url %> </span>
+<% content_tag_for :li, resource do %>
+  <% if admin? %>
+    <span class="adminhandle">[drag]</span>
+  <% end %>
+  <strong><%=h resource.name %></strong>
   <% if admin? %>
     <%= render :partial => 'events/adminlinks',
-	:locals => {
-	  :editpath => edit_resource_path(resource),
-	  :destroypath => resource_path(resource)
-	} %>
+    :locals => { 
+      :editpath => edit_resource_path(resource),
+      :destroypath => resource_path(resource) 
+    } %>
   <% end %>
-</dt>
-<dd>
-  <p class="description"><%=h resource.description %></p>
-</dd>
+  <span><%= link_to "Download", resource.file.url %></span>
+  <p><%=h resource.description %></p>
+<% end %>

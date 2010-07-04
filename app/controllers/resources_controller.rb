@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
 
   def index
     # Show list of uploaded resources
-    @resources = Resource.all
+    @resources = Resource.all(:order => "position")
 
     respond_to do |format|
       format.html
@@ -38,5 +38,12 @@ class ResourcesController < ApplicationController
       format.html { redirect_to(resources_url) }
       format.xml { head :ok }
     end
+  end
+
+  def sort
+    params[:resources].each_with_index do |id, index|
+      Resource.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
   end
 end

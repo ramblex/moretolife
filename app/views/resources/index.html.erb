@@ -1,11 +1,15 @@
 <% content_for :main_title do %>
   <%= image_tag "Resources title.gif" %>
 <% end %>
-<%= image_tag "Resources.jpg", :class => "banner" %>
+
+<%= image_tag "Resources.jpg", :class => 'banner' %>
 <h3>Here you'll find a load of great resources that we've put together for everyone to browse and use. Have fun exploring!</h3>
-<dl id="events">
-  <%= render :partial => @resources %>
-</dl>
+<ul id="resources">
+  <%= render @resources %>
+</ul>
+<% if admin? %>
+  <%= sortable_element("resources", :url => sort_resources_path, :handle => 'adminhandle') %>
+<% end %>
 
 <% content_for :right_col do %>
   <%= image_tag "Events quote.gif", :class => 'quote' %>

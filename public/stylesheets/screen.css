@@ -107,17 +107,25 @@ ul#top-nav ul a:hover, a.sel {
     color: #6d6e71;
 }
 
-dl#events {
+dl#events, ul#resources {
     padding: 0; margin: 0;
+    list-style: none;
 }
 
-dl#events dt {
+dl#events dt, ul#resources li {
     border-top: 1px solid black;
     padding: 5px 0 0 0;
     margin: 5px 0 0 0;
+    color: #000;
 }
 
-dl#events dt span {
+ul#resources li span.adminhandle {
+  float: left;
+  cursor: move;
+  margin-right: 10px;
+}
+
+dl#events dt span, ul#resources li span {
     float: right;
 }
 
@@ -257,7 +265,7 @@ img.quote {
 }
 
 /* Admin */
-a.admin {
+a.admin, span.adminhandle {
     font-size: 10px;
     text-align: right;
     text-decoration: underline;
