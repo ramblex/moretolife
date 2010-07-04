@@ -1,16 +1,5 @@
 class AreasController < ApplicationController
-  before_filter :authorise, :except => [:index, :show]
-  # GET /areas
-  # GET /areas.xml
-  def index
-    @areas = Area.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @areas }
-    end
-  end
-
+  before_filter :authorise, :except => [:show]
   # GET /areas/1
   # GET /areas/1.xml
   def show
@@ -20,7 +9,7 @@ class AreasController < ApplicationController
     else
       @area = Area.find(params[:id])
     end
-    @events = @area.events.future.paginate :page => params[:page]
+    @events = @area.events.paginate :page => params[:page]
   end
 
   # GET /areas/new
