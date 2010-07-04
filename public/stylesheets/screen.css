@@ -6,10 +6,6 @@
  */
 
 /* Structure */
-html {
-    margin-bottom: 67px;
-}
-
 body {
     background-color: #fcb040;
     font-family: Arial, sans-serif;
@@ -29,6 +25,7 @@ body {
     padding: 0 0 35px 0;
     background: #fff;
     margin: 0;
+    border-bottom: 67px solid #fcb040;
 }
 
 ul#left-nav {

@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_filter :authorise, :except => [:index]
+  before_filter :authorise, :except => [:index, :show]
 
   def index
     # Show list of uploaded resources
@@ -9,6 +9,11 @@ class ResourcesController < ApplicationController
       format.html
       format.xml { render :xml => @resources }
     end
+  end
+
+  def show
+    @resource = Resource.find(params[:id])
+    @resources = Resource.without_current(@resource)
   end
 
   def new
