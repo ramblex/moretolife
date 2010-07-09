@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100704084709) do
+ActiveRecord::Schema.define(:version => 20100706202251) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100704084709) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "resource_id"
   end
 
   create_table "events", :force => true do |t|
@@ -56,14 +57,21 @@ ActiveRecord::Schema.define(:version => 20100704084709) do
     t.string   "permalink"
   end
 
+  create_table "resource_files", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "resource_id"
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.string   "file_file_size"
     t.integer  "position"
   end
 

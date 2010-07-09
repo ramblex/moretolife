@@ -23,7 +23,7 @@
         <% if admin? -%>
           <li> </li>
           <li><%= link_to 'Create new event', new_event_path %></li>
-                <li><%= link_to 'Create new area', new_area_path %></li>
+          <li><%= link_to 'Create new area', new_area_path %></li>
           <li><%= link_to 'Create new page', new_page_path %></li>
           <li><%= link_to 'Add new resource', new_resource_path %></li>
           <li>
@@ -52,19 +52,19 @@
         </div> <!-- End left-col -->
 
         <ul id="top-nav">
-          <% cnt = 1
-             areas_list.each do |area|
-               if (((cnt - 1) % 3) == 0) -%>
+          <% areas_list.each_with_index do |area, index| -%>
+            <% if index % 3 == 0 %>
               <ul>
             <% end -%>
-              <li><%= link_to_unless_current area.name, area do
-            link_to area.name, area, :class => 'sel' 
-                end %></li>
-            <% if cnt % 3 == 0 -%>
+            <li>
+              <%= link_to_unless_current area.name, area do
+                    link_to area.name, area, :class => 'sel' 
+                  end %>
+            </li>
+            <% if (index + 1) % 3 == 0 %>
               </ul>
             <% end -%>
-          <% cnt = cnt + 1
-           end %>
+          <% end -%>
         </ul>
 
         <% if admin? -%>

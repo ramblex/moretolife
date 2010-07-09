@@ -1,0 +1,30 @@
+<% content_for :main_title do %>
+  <%= image_tag "Resources title.gif" %>
+<% end %>
+
+<h1><%=h @resource.name %></h1>
+<p><%=h @resource.description %></p>
+
+<hr />
+<% unless @resource.resource_files.blank? %>
+  <% @resource.resource_files.each do |file| %>
+    <p><% link_to file.file.name, file.file.url %></p>
+  <% end %>
+<% end %>
+
+<% unless @resource.event_links.blank? %>
+  <p>Links<%= render :partial => @resource.event_links %></p>
+<% end %>
+
+<% content_for :right_col do %>
+  <h2>MORE RESOURCES</h2>
+  <ul>
+    <li>
+      <% @resources.each do |resource| %>
+        <% link_to resource do %>
+          <strong><%= resource.name %></strong><br />
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

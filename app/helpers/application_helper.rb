@@ -1,5 +1,12 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def add_event_link(name)
+    link_to_function name do |page|
+      page.insert_html :bottom, :links, :partial => 'event_link',
+      :object => EventLink.new
+    end
+  end
+
   def date_format(date_begin, date_end)
     time = date_begin.strftime(" %l:%M %p").downcase
     # Don't show the time if it's set to midnight - Assume no events start

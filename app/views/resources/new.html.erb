@@ -5,15 +5,33 @@
 <p>
   <%= f.label :name %><br />
   <%= f.text_field :name %>
-  </p>
-<p>
-    <%= f.label :file %><br />
-    <%= f.file_field :file %>
 </p>
+<div class="files">
+  <% f.fields_for :resource_files do |file| %>
+    <% if file.object.new_record? %>
+    <p>
+      <%= file.label :file %><br />
+      <%= file.file_field :file %>
+    </p>
+    <% end %>
+  <% end %>
+</div>
 <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
 </p>
+<% f.fields_for :event_links do |link| %>
+  <div id="links">
+    <p>
+      <%= link.label :title %><br />
+      <%= link.text_field :title %>
+    </p>
+    <p>
+      <%= link.label :url %><br />
+      <%= link.text_field :url %>
+    </p>
+  </div>
+<% end %>
 <p>
   <%= f.submit 'Create' %>
 </p>
