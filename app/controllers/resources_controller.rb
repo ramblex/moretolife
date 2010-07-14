@@ -18,8 +18,8 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
-    5.times { @resource.resource_files.build }
-    5.times { @resource.event_links.build }
+    3.times { @resource.resource_files.build }
+    3.times { @resource.event_links.build }
   end
 
   def create

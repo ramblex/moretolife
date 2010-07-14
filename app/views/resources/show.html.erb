@@ -7,13 +7,25 @@
 
 <hr />
 <% unless @resource.resource_files.blank? %>
+  <h4>Resources:</h4>
+  <ul class="resource-list">
   <% @resource.resource_files.each do |file| %>
-    <p><% link_to file.file.name, file.file.url %></p>
+    <li><%= link_to file.file_file_name, file.file.url %></li>
   <% end %>
+  </ul>
+<% else %>
+  No resources
 <% end %>
 
 <% unless @resource.event_links.blank? %>
-  <p>Links<%= render :partial => @resource.event_links %></p>
+  <h4>Links:</h4>
+  <ul class="resource-list">
+  <% @resource.event_links.each do |link| %>
+    <% if not link.title.blank? %>
+      <li><%= link_to link.title, link.url %></li>
+    <% end %>
+  <% end %>
+  </ul>
 <% end %>
 
 <% content_for :right_col do %>

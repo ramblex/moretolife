@@ -7,11 +7,11 @@
   <%= f.text_field :name %>
 </p>
 <div class="files">
-  <% f.fields_for :resource_files do |file| %>
-    <% if file.object.new_record? %>
+  <% f.fields_for :resource_files do |builder| %>
+    <% if builder.object.new_record? %>
     <p>
-      <%= file.label :file %><br />
-      <%= file.file_field :file %>
+      <%= builder.label :file %><br />
+      <%= builder.file_field :file %>
     </p>
     <% end %>
   <% end %>
@@ -20,18 +20,20 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
 </p>
-<% f.fields_for :event_links do |link| %>
-  <div id="links">
-    <p>
-      <%= link.label :title %><br />
-      <%= link.text_field :title %>
-    </p>
-    <p>
-      <%= link.label :url %><br />
-      <%= link.text_field :url %>
-    </p>
-  </div>
-<% end %>
+<div class="links">
+  <% f.fields_for :event_links do |builder| %>
+    <% if builder.object.new_record? %>
+      <p>
+        <%= builder.label :title %><br />
+        <%= builder.text_field :title %>
+      </p>
+      <p>
+        <%= builder.label :url %><br />
+        <%= builder.text_field :title %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
 <p>
   <%= f.submit 'Create' %>
 </p>

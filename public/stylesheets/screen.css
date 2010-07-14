@@ -306,3 +306,9 @@ span.disabled {
 span.current {
     color: #ccc;
 }
+
+/* Resources */
+ul.resource-list li {
+  margin: 5px 0;
+  list-style: none;
+}
