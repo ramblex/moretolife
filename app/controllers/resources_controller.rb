@@ -18,7 +18,7 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
-    3.times { @resource.resource_files.build }
+    12.times { @resource.resource_files.build }
     3.times { @resource.event_links.build }
   end
 
