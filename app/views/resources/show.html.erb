@@ -22,7 +22,7 @@
   <ul class="resource-list">
   <% @resource.event_links.each do |link| %>
     <% if not link.title.blank? %>
-      <li><%= link_to link.title, link.url %></li>
+      <li><%= link_to link.url, link.title %></li>
     <% end %>
   <% end %>
   </ul>
